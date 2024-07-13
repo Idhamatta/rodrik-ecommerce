@@ -1,4 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:rodrik_ecommerce/pages/home_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -10,36 +14,74 @@ class IntroPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 3, 29, 39),
         title: Text(
-          'Rodrik E-Commerce',
+          'E-Commerce',
         ),
         centerTitle: true,
         titleTextStyle: TextStyle(
             fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
       ),
       body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              // Untuk Logo
-              child: Image.asset(
-                'lib/images/rodriklogo.png',
-                height: 250,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                // Untuk Logo
+                child: Image.asset(
+                  'lib/images/rodriklogo.png',
+                  height: 270,
+                ),
               ),
-            ),
-            const SizedBox(height: 48),
-            // Title
-            Text(
-              'Ici Cest Rodrik',
-              style: TextStyle(
+              const SizedBox(height: 40),
+              // Title
+              Text(
+                'ICI C\'EST RODRIK',
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: Colors.white),
-            )
-            // Sub Title
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 24),
+              // Sub Title
+              Text(
+                'Discover Quality, Embrace Style, Shop with Confidence',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
 
-            // Button Start Now
-          ],
+              const SizedBox(height: 48),
+              // Button Start Now
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF006e83),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: const Center(
+                      child: Text(
+                        'Shop Now',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
