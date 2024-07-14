@@ -33,15 +33,89 @@ class _HomePageState extends State<HomePage> {
 
     // payment page
     const PaymentPage(),
-    
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 3, 29, 39),
+      backgroundColor: const Color.fromARGB(255, 3, 29, 39),
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(
+              Icons.menu_rounded,
+              color: Color(0xFF12ad95),
+            ),
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Color.fromARGB(255, 3, 29, 39),
+        child: Column(
+          children: [
+            // logo
+            DrawerHeader(
+              child: Image.asset(
+                'lib/images/rodriklogo.png',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Divider(
+                color: Color(0xFF12ad95),
+              ),
+            ),
+
+            // other pages
+            const Padding(
+              padding: EdgeInsets.only(left: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.home_outlined,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Home',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.info_outline_rounded,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'About',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.logout_rounded,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       body: _pages[_selectedIndex],
     );
