@@ -50,9 +50,12 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
-            icon: const Icon(
-              Icons.menu_rounded,
-              color: Color(0xFF12ad95),
+            icon: const Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Icon(
+                Icons.menu_rounded,
+                color: Color(0xFF12ad95),
+              ),
             ),
           ),
         ),
@@ -60,46 +63,51 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         backgroundColor: Color.fromARGB(255, 3, 29, 39),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // logo
-            DrawerHeader(
-              child: Image.asset(
-                'lib/images/rodriklogo.png',
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Divider(
-                color: Color(0xFF12ad95),
-              ),
-            ),
+            Column(
+              children: [
+                // logo
+                DrawerHeader(
+                  child: Image.asset(
+                    'lib/images/rodriklogo.png',
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Divider(
+                    color: Color(0xFF12ad95),
+                  ),
+                ),
 
-            // other pages
-            const Padding(
-              padding: EdgeInsets.only(left: 25.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.home_outlined,
-                  color: Colors.white,
+                // other pages
+                const Padding(
+                  padding: EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.home_outlined,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-                title: Text(
-                  'Home',
-                  style: TextStyle(color: Colors.white),
+                const Padding(
+                  padding: EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.info_outline_rounded,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'About',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 25.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.info_outline_rounded,
-                  color: Colors.white,
-                ),
-                title: Text(
-                  'About',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+              ],
             ),
             const Padding(
               padding: EdgeInsets.only(left: 25.0),
