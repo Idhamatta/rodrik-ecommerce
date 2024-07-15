@@ -50,7 +50,7 @@ class ShoeTile extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    color: Color(0xFF12ad95),
+                    color: Color(0xFFc1faff),
                     borderRadius: BorderRadius.circular(8)),
                 child: Icon(Icons.add_rounded),
               )
