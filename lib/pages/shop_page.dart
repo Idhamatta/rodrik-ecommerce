@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rodrik_ecommerce/components/shoe_tile.dart';
+import 'package:rodrik_ecommerce/models/shoe.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -36,21 +38,52 @@ class _ShopPageState extends State<ShopPage> {
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 15.0),
           child: Text(
-            'Ich Bin Ein Berliner, Deutschland Uber Alles',
+            'Welcome to Rodrik E-commerce',
             style: TextStyle(
                 color: Color(0xFF12ad95), fontWeight: FontWeight.bold),
           ),
         ),
 
         // Hot Picks
-        const Row(
-          children: [
-            Text(
-              'Hot Picks 🔥',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const Text(
+                'Hot Picks 🔥',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24),
+              ),
+              Text(
+                'See all',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.blue[400]),
+              )
+            ],
+          ),
+        ),
+
+        const SizedBox(height: 10),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 3,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              // create a shoe
+              Shoe shoe = Shoe(
+                  name: 'Adidas Predator',
+                  price: 'Rp 2.400.000',
+                  imagePath: 'lib/images/adidaspredator.png',
+                  description: 'Elevate your game with the Adidas Predator');
+              return ShoeTile(
+                shoe: shoe,
+              );
+            },
+          ),
         )
       ],
     );
