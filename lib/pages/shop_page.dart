@@ -81,9 +81,8 @@ class _ShopPageState extends State<ShopPage> {
                   description: 'Elevate your game with the Adidas Predator');
               return ShoeTile(
                 shoe: shoe,
-              ); 
+              );
             },
-            
           ),
         )
       ],

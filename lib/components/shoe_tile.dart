@@ -39,10 +39,22 @@ class ShoeTile extends StatelessWidget {
               Column(
                 children: [
                   // Shoe Name
-                  Text(shoe.name),
+                  Text(
+                    shoe.name,
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Color(0xFFc1faff),
+                        fontWeight: FontWeight.bold),
+                  ),
 
                   // Price
-                  Text(shoe.price),
+                  Text(
+                    shoe.price,
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Color(0xFFc1faff),
+                        fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
 
